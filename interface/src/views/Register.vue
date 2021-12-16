@@ -1,3 +1,0 @@
-<template>
-  <h1>注册页</h1>
-</template>
