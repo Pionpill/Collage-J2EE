@@ -20,7 +20,7 @@ CREATE TABLE goods (
     productor varchar(20),
     price varchar(10),
     quantity varchar(10) NOT NULL,
-    entyTime smalldatetime,
+    entyTime DATE,
     checker varchar(20),
     checkerID INT,
     buyer varchar(20),
@@ -30,7 +30,7 @@ CREATE TABLE goods (
 
 CREATE TABLE records (
     ID INT NOT NULL PRIMARY KEY,
-    entryTime smalldatatime,
+    entryTime DATE,
     personnel varchar(20),
     personnelID INT,
     driver varchar(20),
