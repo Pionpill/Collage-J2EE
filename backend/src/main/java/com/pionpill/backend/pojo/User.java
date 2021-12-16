@@ -1,5 +1,8 @@
 package com.pionpill.backend.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import javax.persistence.*;
 @Entity
 @Table(name = "account")
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"})
