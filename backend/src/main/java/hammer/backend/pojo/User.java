@@ -1,4 +1,4 @@
-package com.pionpill.backend.pojo;
+package hammer.backend.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
@@ -24,4 +24,8 @@ public class User {
     String email;
     String academy;
     String major;
+
+    public String getPassword() {
+        return "test";
+    }
 }

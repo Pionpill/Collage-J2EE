@@ -1,6 +1,6 @@
-package com.pionpill.backend.mapper;
+package hammer.backend.mapper;
 
-import com.pionpill.backend.pojo.User;
+import hammer.backend.pojo.User;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

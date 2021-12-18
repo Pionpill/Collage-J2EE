@@ -38,7 +38,18 @@
 
 <script>
 export default {
-  name: "SideMenu"
+  name: "SideMenu",
+  data() {
+    return {
+      cid: ""
+    };
+  },
+  methods: {
+    handleSelect(key, keyPath) {
+      this.cid = key;
+      this.$emit("indexSelect");
+    }
+  }
 };
 </script>
 
@@ -48,6 +59,10 @@ export default {
   margin-left: 50%;
   left: -600px;
   top: 100px;
-  width: 150px;
+  width: 100px;
+  /* background-color: #eee; */
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3), 0 5px 2px rgba(0, 0, 0, 0.22);
+  border: 2px solid #fff;
+  border-radius: 10px;
 }
 </style>

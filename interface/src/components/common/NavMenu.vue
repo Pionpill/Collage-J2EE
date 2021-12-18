@@ -22,11 +22,15 @@
       style="position: absolute;padding-top: 20px;right: 43%;font-size: 20px;font-weight: bold"
       >校园图书管理系统</span
     >
+    <user-form></user-form>
   </el-menu>
 </template>
 
 <script>
+import UserForm from "./UserForm";
+
 export default {
+  components: { UserForm },
   name: "NavMenu",
   data() {
     return {

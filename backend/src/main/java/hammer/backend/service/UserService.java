@@ -1,6 +1,6 @@
-package com.pionpill.backend.service;
+package hammer.backend.service;
 
-import com.pionpill.backend.pojo.User;
+import hammer.backend.pojo.User;
 
 
 public interface UserService {

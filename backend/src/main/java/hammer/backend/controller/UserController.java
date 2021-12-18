@@ -1,13 +1,13 @@
-package com.pionpill.backend.controller;
+package hammer.backend.controller;
 
-import com.pionpill.backend.service.imp.UserServiceImp;
+import hammer.backend.service.imp.UserServiceImp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import com.pionpill.backend.mapper.UserMapper;
-import com.pionpill.backend.pojo.User;
+import hammer.backend.mapper.UserMapper;
+import hammer.backend.pojo.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
