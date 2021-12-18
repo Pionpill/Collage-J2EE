@@ -146,7 +146,6 @@ export default {
   },
   methods: {
     login() {
-      // TODO 后端检查
       if (this.loginForm.username != "" && this.loginForm.password != "") {
         this.$axios
           .post("/login", {
@@ -154,11 +153,15 @@ export default {
             password: this.loginForm.password
           })
           .then(successResponse => {
-            if (successResponse.data.code === 200) {
+            if (successResponse.data.code == 200) {
               this.$router.replace({ path: "/index" });
+            } else if (successResponse.data.code == 400) {
+              alert("后端出错！");
             }
           })
-          .catch(failResponse => {});
+          .catch(failResponse => {
+            alert("错误!");
+          });
       } else {
         alert("用户名与密码不为空! \n听见没有???");
       }
@@ -167,7 +170,7 @@ export default {
       if (!this.checkRegister()) {
         // TODO 后端检查
         this.$axios
-          .post("/login", {})
+          .post("/register", {})
           .then(successResponse => {
             if (successResponse.data.code === 200) {
               this.$router.replace({ path: "/index" });

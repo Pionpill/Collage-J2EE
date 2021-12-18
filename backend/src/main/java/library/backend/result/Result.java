@@ -1,7 +1,7 @@
-package hammer.backend.result;
+package library.backend.result;
 
 public class Result {
-    //响应码
+    // 响应码，不同响应码有规定的不同意义
     private int code;
 
     public Result(int code) {
@@ -9,7 +9,7 @@ public class Result {
     }
 
     public int getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(int code) {

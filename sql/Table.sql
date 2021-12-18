@@ -1,12 +1,11 @@
 -- 若之前创建过同名数据库，先删除
-
 CREATE DATABASE J2EE;
 
 USE J2EE;
 
-DROP TABLE IF EXISTS account;
-CREATE TABLE account (
-    ID char(12) NOT NULL PRIMARY KEY,   -- 12 位对应学号
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+    id varchar(12) NOT NULL PRIMARY KEY,   -- 12 位对应学号
     realName varchar(20) DEFAULT NULL,
     userName varchar(20) NOT NULL,
     passWord varchar(20) NOT NULL,
@@ -14,9 +13,8 @@ CREATE TABLE account (
     permission INT DEFAULT 2,    -- 0:超级权限 1: 管理员 2: 普通  (默认注册为普通权限)
     email varchar(25) NOT NULL,
     academy varchar(20) DEFAULT NULL,
-    major varchar(20) DEFAULT NULL,
-    PRIMARY KEY (id)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+    major varchar(20) DEFAULT NULL
+);
 
 DROP TABLE IF EXISTS book;
 CREATE TABLE book (
