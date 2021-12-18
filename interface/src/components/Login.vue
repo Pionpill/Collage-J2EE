@@ -146,6 +146,7 @@ export default {
   },
   methods: {
     login() {
+      // TODO 后端检查
       if (this.loginForm.username != "" && this.loginForm.password != "") {
         this.$axios
           .post("/login", {
@@ -164,6 +165,7 @@ export default {
     },
     register() {
       if (!this.checkRegister()) {
+        // TODO 后端检查
         this.$axios
           .post("/login", {})
           .then(successResponse => {
