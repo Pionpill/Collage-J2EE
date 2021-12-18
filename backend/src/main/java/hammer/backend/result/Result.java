@@ -1,4 +1,4 @@
-package com.pionpill.backend.result;
+package hammer.backend.result;
 
 public class Result {
     //响应码
