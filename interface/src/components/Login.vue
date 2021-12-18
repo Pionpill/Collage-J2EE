@@ -74,6 +74,14 @@
             />
           </label>
           <label>
+            <span>学号</span>
+            <input
+              type="text"
+              v-model="registerForm.id"
+              placeholder="你的12位学号"
+            />
+          </label>
+          <label>
             <span>邮箱</span>
             <input
               type="email"
@@ -117,7 +125,8 @@ export default {
         username: "",
         password: "",
         email: "",
-        confirmPassword: ""
+        confirmPassword: "",
+        id: ""
       },
       responseResult: [],
       authors: [
@@ -126,7 +135,13 @@ export default {
         "潘孝飞 201983290430",
         "汤硕 201983290013"
       ],
-      skills: ["Html,CSS,JavaScript", "Vue3", "Element UI", "SpringBoot"]
+      skills: [
+        "Html,CSS,JavaScript",
+        "Vue3",
+        "Element UI",
+        "SpringBoot",
+        "axios"
+      ]
     };
   },
   methods: {
@@ -144,34 +159,52 @@ export default {
           })
           .catch(failResponse => {});
       } else {
-        alert("用户名与密码不为空! \n 听见没有???");
+        alert("用户名与密码不为空! \n听见没有???");
       }
     },
-    // TODO 注册函数，传入各项信息
-    // 用户名: 中英文都可，长度区间 [5,20]
-    // 学号: 12 位学号
-    // 邮箱: 检测是否有 @ 字符
-    // 密码: 长度 > 10, 包含字母
-    // 确认密码: 和密码相同
     register() {
-      this.$axios
-        .post("/login", {})
-        .then(successResponse => {
-          if (successResponse.data.code === 200) {
-            this.$router.replace({ path: "/index" });
-          }
-        })
-        .catch(failResponse => {});
+      if (!this.checkRegister()) {
+        this.$axios
+          .post("/login", {})
+          .then(successResponse => {
+            if (successResponse.data.code === 200) {
+              this.$router.replace({ path: "/index" });
+            }
+          })
+          .catch(failResponse => {});
+      } else {
+        alert(this.checkRegister() + "\n请重新注册!!");
+      }
+    },
+    checkRegister() {
+      let message = "";
+      if (this.registerForm.username === "") message = "用户名不为空";
+      else if (
+        this.registerForm.username.length < 5 ||
+        this.registerForm.username.length > 20
+      )
+        message = "用户名必须在 5-20 个字符之间";
+      else if (this.registerForm.id === "") message = "学号不为空";
+      else if (this.registerForm.id.length != 12) message = "学号必须为12位";
+      else if (this.registerForm.email === "") message = "邮箱不为空";
+      else if (this.registerForm.email.search("@") == -1)
+        message = "这不是有效的邮箱吧";
+      else if (this.registerForm.password === "") message = "密码不为空";
+      else if (this.registerForm.password.length < 10)
+        message = "密码长度至少为 10 ";
+      else if (this.registerForm.confirmPassword != this.registerForm.password)
+        message = "两次密码不匹配";
+      return message;
     },
     // 登陆注册切换函数
     change() {
       document.querySelector(".cont").classList.toggle("s-signup");
     },
     forgetPWD() {
-      alert("暂时未提供该功能! \n 欸嘿欸嘿欸嘿欸嘿欸嘿");
+      alert("暂时未提供该功能! \n欸嘿欸嘿欸嘿欸嘿欸嘿");
     },
     tempLogin() {
-      alert("暂时未提供从其他平台登录的功能 \n 没钱，没人脉，惨!!!");
+      alert("暂时未提供从其他平台登录的功能 \n没钱，没人脉，惨!!!");
     }
   }
 };
@@ -226,7 +259,7 @@ h2 {
 label {
   display: block;
   width: 260px;
-  margin: 25px auto 0;
+  margin: 15px auto 0;
   text-align: center;
 }
 
@@ -261,7 +294,7 @@ button {
 }
 
 .submit {
-  margin-top: 40px;
+  margin-top: 25px;
   margin-bottom: 30px;
   text-transform: uppercase;
   font-weight: 600;
