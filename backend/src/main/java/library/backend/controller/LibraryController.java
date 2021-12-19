@@ -2,17 +2,19 @@
 /*
  * @Author: Rooter
  * @Date: 2021-12-19 13:04:32
- * @LastEditors: Rooter
+ * @LastEditors: Pionpill
  */
 package library.backend.controller;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import library.backend.Service.BookService;
@@ -48,4 +50,16 @@ public class LibraryController {
             return list();
         }
     }
+
+    @CrossOrigin
+    @GetMapping("/api/search")
+    public List<Book> searchResult(@RequestParam("keywords") String keywords) {
+    	// 关键词为空时查询出所有书籍
+        if ("".equals(keywords)) {
+            return bookService.list();
+        } else {
+            return bookService.Search(keywords);
+        }
+    }
+
 }

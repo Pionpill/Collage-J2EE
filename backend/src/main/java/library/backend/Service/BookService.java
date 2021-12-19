@@ -1,7 +1,7 @@
 /*
  * @Author: Rooter
  * @Date: 2021-12-19 13:01:31
- * @LastEditors: Rooter
+ * @LastEditors: Pionpill
  */
 package library.backend.Service;
 
@@ -39,4 +39,9 @@ public class BookService {
         Category category = categoryService.get(cid);
         return bookDAO.findAllByCategory(category);
     }
+
+    public List<Book> Search(String keywords) {
+        return bookDAO.findAllByTitleLikeOrAuthorLike('%' + keywords + '%', '%' + keywords + '%');
+    }
+
 }

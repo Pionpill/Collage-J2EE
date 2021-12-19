@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 18:59:46
- * @LastEditTime: 2021-12-19 14:23:16
+ * @LastEditTime: 2021-12-19 17:31:35
 -->
 <template>
   <div>
@@ -74,6 +74,7 @@ export default {
       pagesize: 17
     };
   },
+  // 初始化即获取书籍
   mounted: function() {
     this.loadBooks();
   },
