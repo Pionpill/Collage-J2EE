@@ -1,3 +1,11 @@
+<!--
+ * @Description: 图书页
+ * @version: 1.0
+ * @Author: Pionpill
+ * @LastEditors: Pionpill
+ * @Date: 2021-12-18 18:59:46
+ * @LastEditTime: 2021-12-19 14:23:16
+-->
 <template>
   <div>
     <el-row style="height: 840px;">
@@ -22,7 +30,7 @@
           {{ item.abs }}
         </p>
         <el-card
-          style="width: 135px;margin-bottom: 20px;height: 233px;float: left;margin-right: 15px"
+          style="width: 135px;margin-bottom: 20px;height: 250px;float: left;margin-right: 15px"
           class="book"
           bodyStyle="padding:10px"
           shadow="hover"
@@ -132,6 +140,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .cover {
   width: 115px;

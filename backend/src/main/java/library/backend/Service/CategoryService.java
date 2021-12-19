@@ -1,12 +1,12 @@
 /*
  * @Author: Rooter
+ * @Author: Pionpill
  * @Date: 2021-12-19 12:56:12
- * @LastEditors: Rooter
+ * @LastEditors: Pionpill
  */
 package library.backend.Service;
 
 import java.util.List;
-
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -21,7 +21,8 @@ public class CategoryService {
     CategoryDAO categoryDAO;
 
     public List<Category> list() {
-        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        // springboot 2.2 之后 sort 构造函数变为私有
+        Sort sort = Sort.by(Sort.Direction.DESC, "id");
         return categoryDAO.findAll(sort);
     }
 

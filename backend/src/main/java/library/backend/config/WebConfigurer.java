@@ -4,12 +4,13 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 10:59:52
- * @LastEditTime: 2021-12-19 12:04:07
+ * @LastEditTime: 2021-12-19 14:04:23
  */
 package library.backend.config;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.context.annotation.Bean;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -34,7 +35,17 @@ public class WebConfigurer implements WebMvcConfigurer {
 
     // 拦截器，除了 index 网页
     @Override
-    public void addInterceptors(InterceptorRegistry registry){
+    public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(getLoginIntercepter()).addPathPatterns("/**").excludePathPatterns("/index.html");
     }
+    
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        //所有请求都允许跨域
+        registry.addMapping("/**")
+                .allowedOrigins("*")
+                .allowedMethods("*")
+                .allowedHeaders("*");
+    }
+
 }

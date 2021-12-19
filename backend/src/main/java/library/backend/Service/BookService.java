@@ -23,7 +23,7 @@ public class BookService {
     CategoryService categoryService;
 
     public List<Book> list() {
-        Sort sort = new Sort(Sort.Direction.DESC, "id");
+        Sort sort = Sort.by(Sort.Direction.DESC, "id");
         return bookDAO.findAll(sort);
     }
 

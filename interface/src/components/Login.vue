@@ -147,7 +147,7 @@ export default {
   methods: {
     login() {
       if (this.loginForm.username != "" && this.loginForm.password != "") {
-        var_this = this;
+        var _this = this;
         console.log(this.$store.state);
         this.$axios
           .post("/login", {
