@@ -147,6 +147,8 @@ export default {
   methods: {
     login() {
       if (this.loginForm.username != "" && this.loginForm.password != "") {
+        var_this = this;
+        console.log(this.$store.state);
         this.$axios
           .post("/login", {
             username: this.loginForm.username,
@@ -154,13 +156,17 @@ export default {
           })
           .then(successResponse => {
             if (successResponse.data.code == 200) {
-              this.$router.replace({ path: "/index" });
+              _this.$store.commit("login", _this.loginForm);
+              var path = this.$route.query.redirect;
+              this.$router.replace({
+                path: path === "/" || path === undefined ? "/index" : path
+              });
             } else if (successResponse.data.code == 400) {
-              alert("后端出错！");
+              alert("登陆失败！");
             }
           })
           .catch(failResponse => {
-            alert("错误!");
+            alert("未知登录错误!");
           });
       } else {
         alert("用户名与密码不为空! \n听见没有???");

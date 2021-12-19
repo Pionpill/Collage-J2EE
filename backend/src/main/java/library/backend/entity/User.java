@@ -1,3 +1,11 @@
+/*
+ * @Description: your project
+ * @version: 1.0
+ * @Author: Pionpill
+ * @LastEditors: Pionpill
+ * @Date: 2021-12-18 21:27:21
+ * @LastEditTime: 2021-12-19 01:09:01
+ */
 package library.backend.entity;
 
 import javax.persistence.Column;
@@ -22,6 +30,7 @@ public class User {
     private String id;
     private String username;
     private String password;
+    // 必须写 Column 不然报错
     @Column(name="realname")
     private String realName;
     private String sexual;
@@ -29,5 +38,4 @@ public class User {
     private String email;
     private String academy;
     private String major;
-    // 会导致 http 500 错误
 }

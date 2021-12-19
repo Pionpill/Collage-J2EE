@@ -1,3 +1,11 @@
+/*
+ * @Description: your project
+ * @version: 1.0
+ * @Author: Pionpill
+ * @LastEditors: Pionpill
+ * @Date: 2021-12-18 21:35:41
+ * @LastEditTime: 2021-12-19 01:09:42
+ */
 package library.backend.result;
 
 public class Result {
