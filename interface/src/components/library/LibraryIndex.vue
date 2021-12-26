@@ -42,7 +42,7 @@ export default {
 
 <style scoped>
 .books-area {
-  width: 990px;
+  width: 1000px;
   margin-left: auto;
   margin-right: auto;
 }

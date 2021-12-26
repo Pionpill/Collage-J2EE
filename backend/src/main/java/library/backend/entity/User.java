@@ -10,8 +10,6 @@ package library.backend.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -25,7 +23,6 @@ import lombok.Data;
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"}) // json 字段忽略
 public class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // 主键
     @Column(name="id")
     private String id;
     private String username;

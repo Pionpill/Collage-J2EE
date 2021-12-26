@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 14:30:24
- * @LastEditTime: 2021-12-25 15:02:06
+ * @LastEditTime: 2021-12-26 20:47:59
 -->
 <template>
   <div id="poster">
@@ -184,10 +184,12 @@ export default {
       if (!this.checkRegister()) {
         // TODO 后端检查
         this.$axios
-          .post("/register", {})
+          .post("/register", this.registerForm)
           .then(successResponse => {
             if (successResponse.data.code === 200) {
               this.$router.replace({ path: "/index" });
+            } else if (successResponse.data.code === 400) {
+              alert("这个学号或邮箱已被注册!!!");
             }
           })
           .catch(failResponse => {});
@@ -199,10 +201,10 @@ export default {
       let message = "";
       if (this.registerForm.username === "") message = "用户名不为空";
       else if (
-        this.registerForm.username.length < 5 ||
+        this.registerForm.username.length < 2 ||
         this.registerForm.username.length > 20
       )
-        message = "用户名必须在 5-20 个字符之间";
+        message = "用户名必须在 2-20 个字符之间";
       else if (this.registerForm.id === "") message = "学号不为空";
       else if (this.registerForm.id.length != 12) message = "学号必须为12位";
       else if (this.registerForm.email === "") message = "邮箱不为空";

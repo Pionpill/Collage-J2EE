@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-17 00:40:47
- * @LastEditTime: 2021-12-26 18:28:00
+ * @LastEditTime: 2021-12-26 19:49:10
 -->
 <template>
   <div class="index">
@@ -12,10 +12,7 @@
       <div class="card">
         <h2>笔记本</h2>
         <p>笔记本功能区可以书写各种备注</p>
-        <button
-          class="button"
-          @click="this.$router.replace({ path: '/library' })"
-        >
+        <button class="button" @click="jump('notebook')">
           进入笔记本
         </button>
       </div>
@@ -24,14 +21,16 @@
         <p>
           图书馆提供了计算机类的各色书籍，你可以在那里查阅各种书籍的信息，增加或修改书籍。
         </p>
-        <button class="button" @click="getRandomSaying">进入笔图书馆</button>
+        <button class="button" @click="jump('library')">
+          进入图书馆
+        </button>
       </div>
       <div class="card">
         <h2>管理中心</h2>
         <p>
           如果你是管理员的话，你还可以进入管理中心，对整个网站的运行进行监控，对用户个人信息与权限进行修改
         </p>
-        <button class="button">进入管理中心</button>
+        <button class="button" @click="jump('admin')">进入管理中心</button>
       </div>
     </div>
     <div class="words">
@@ -62,6 +61,9 @@ export default {
           _this.saying = resp.data;
         }
       });
+    },
+    jump(url) {
+      this.$router.replace({ path: url });
     }
   }
 };

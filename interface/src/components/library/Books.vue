@@ -4,11 +4,11 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 18:59:46
- * @LastEditTime: 2021-12-19 17:31:35
+ * @LastEditTime: 2021-12-26 21:52:20
 -->
 <template>
   <div>
-    <el-row style="height: 840px;">
+    <el-row style="height: 880px;">
       <search-bar @onSearch="searchResult" ref="searchBar"></search-bar>
       <el-tooltip
         effect="dark"
@@ -145,7 +145,7 @@ export default {
 <style scoped>
 .cover {
   width: 115px;
-  height: 172px;
+  height: 162px;
   margin-bottom: 7px;
   overflow: hidden;
   cursor: pointer;
@@ -153,7 +153,7 @@ export default {
 
 img {
   width: 115px;
-  height: 172px;
+  height: 162px;
   /*margin: 0 auto;*/
 }
 

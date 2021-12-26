@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 11:57:43
- * @LastEditTime: 2021-12-26 17:15:47
+ * @LastEditTime: 2021-12-26 20:46:44
  */
 package library.backend.controller;
 
@@ -28,13 +28,12 @@ public class RegisterController {
     @PostMapping(value = "api/register")
     @ResponseBody
     public Result register(@RequestBody User requestUser) {
-
-        // TODO:检查前端传来的注册信息
-        User user = UserService.add(requestUser);
-
-        if (user == null) {
+        String id = requestUser.getId();
+        String email = requestUser.getEmail();
+        if (UserService.isExist(id) || UserService.isEmaillExist(email)) {
             return new Result(400);
         } else {
+            UserService.addRegisterUser(requestUser);
             return new Result(200);
         }
     }
