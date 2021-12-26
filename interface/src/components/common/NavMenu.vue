@@ -1,3 +1,11 @@
+<!--
+ * @Description: your project
+ * @version: 1.0
+ * @Author: Pionpill
+ * @LastEditors: Pionpill
+ * @Date: 2021-12-18 18:59:46
+ * @LastEditTime: 2021-12-25 15:10:50
+-->
 <template>
   <el-menu
     id="nav"
@@ -22,15 +30,11 @@
       style="position: absolute;padding-top: 20px;right: 43%;font-size: 20px;font-weight: bold"
       >校园图书管理系统</span
     >
-    <user-form></user-form>
   </el-menu>
 </template>
 
 <script>
-import UserForm from "./UserForm";
-
 export default {
-  components: { UserForm },
   name: "NavMenu",
   data() {
     return {

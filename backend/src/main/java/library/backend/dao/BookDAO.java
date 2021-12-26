@@ -14,6 +14,6 @@ import library.backend.entity.Book;
 import library.backend.entity.Category;
 
 public interface BookDAO extends  JpaRepository<Book,Integer>{
-    List<Book> findAllByCategory(Category category);  // Books 类注解实现
+    List<Book> findAllByCategory(Category category); 
     List<Book> findAllByTitleLikeOrAuthorLike(String keyword1, String keyword2);
 }

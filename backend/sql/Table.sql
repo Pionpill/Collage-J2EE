@@ -3,6 +3,7 @@ CREATE DATABASE J2EE;
 
 USE J2EE;
 
+-- 用户表
 DROP TABLE IF EXISTS user;
 CREATE TABLE user (
     id varchar(12) NOT NULL PRIMARY KEY,   -- 12 位对应学号
@@ -16,6 +17,8 @@ CREATE TABLE user (
     major varchar(20) DEFAULT NULL
 );
 
+
+-- 书类型表
 DROP TABLE IF EXISTS category;
 CREATE TABLE category (
   id int(11) NOT NULL,  -- 1. 计算机基础  2. 前端开发  3.后端开发  4.人工智能  5. 游戏开发  6. 大数据
@@ -23,6 +26,7 @@ CREATE TABLE category (
   PRIMARY KEY (id)
 );
 
+-- 书表
 DROP TABLE IF EXISTS book;
 CREATE TABLE book (
     id int(11) NOT NULL AUTO_INCREMENT,
@@ -36,4 +40,14 @@ CREATE TABLE book (
     PRIMARY KEY (id),
     KEY fk_book_category_on_cid (cid),
     CONSTRAINT fk_book_category_on_cid FOREIGN KEY (cid) REFERENCES category (id) ON DELETE SET NULL ON UPDATE CASCADE
+);
+
+-- 名言表
+DROP TABLE IF EXISTS saying;
+CREATE TABLE saying(
+    id int(11) NOT NULL AUTO_INCREMENT,
+    book varchar(50) DEFAULT '',
+    saying varchar(255) NOT NULL,
+    author varchar(50) DEFAULT '',
+    PRIMARY KEY (id)
 );

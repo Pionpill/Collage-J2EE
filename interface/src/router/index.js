@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 13:28:14
- * @LastEditTime: 2021-12-19 11:17:07
+ * @LastEditTime: 2021-12-25 15:30:18
  */
 import Vue from "vue";
 import Router from "vue-router";
@@ -48,6 +48,24 @@ export default new Router({
       path: "/login",
       name: "Login",
       component: Login
+    },
+    {
+      path: "/admin",
+      name: "Admin",
+      component: () => import("../components/admin/AdminIndex"),
+      meta: {
+        requireAuth: true
+      },
+      children: [
+        // {
+        //   path: "/admin/dashboard",
+        //   name: "Dashboard",
+        //   component: () => import("../components/admin/dashboard/admin/index"),
+        //   meta: {
+        //     requireAuth: true
+        //   }
+        // }
+      ]
     }
   ]
 });
