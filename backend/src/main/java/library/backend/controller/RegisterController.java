@@ -2,9 +2,9 @@
  * @Description: your project
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Pionpill
+ * @LastEditors: Rooter
  * @Date: 2021-12-19 11:57:43
- * @LastEditTime: 2021-12-27 22:49:33
+ * @LastEditTime: 2021-12-30 23:17:51
  */
 package library.backend.controller;
 
@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import library.backend.Service.UserService;
+import library.backend.Service.BookService;
+import library.backend.entity.Book;
 import library.backend.entity.User;
 import library.backend.result.Result;
 
@@ -34,6 +36,21 @@ public class RegisterController {
             return new Result(400);
         } else {
             UserService.addRegisterUser(requestUser);
+            return new Result(200);
+        }
+    }
+
+    @Autowired
+    BookService bookservice;
+    @CrossOrigin
+    @PostMapping(value = "api/registerBook")
+    @ResponseBody
+    public Result registerBook(@RequestBody Book requestBook){
+        int id = requestBook.getId();
+        if (bookservice.isExist(id)) {
+            return new Result(400);
+        } else {
+            bookservice.addRegisterBook(requestBook);
             return new Result(200);
         }
     }
