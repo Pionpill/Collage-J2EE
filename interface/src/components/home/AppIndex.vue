@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-17 00:40:47
- * @LastEditTime: 2021-12-26 19:49:10
+ * @LastEditTime: 2021-12-30 22:45:52
 -->
 <template>
   <div class="index">
@@ -12,7 +12,7 @@
       <div class="card">
         <h2>笔记本</h2>
         <p>笔记本功能区可以书写各种备注</p>
-        <button class="button" @click="jump('notebook')">
+        <button class="button" @click="jump('note')">
           进入笔记本
         </button>
       </div>

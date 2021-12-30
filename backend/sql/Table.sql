@@ -51,3 +51,13 @@ CREATE TABLE saying(
     author varchar(50) DEFAULT '',
     PRIMARY KEY (id)
 );
+
+DROP TABLE IF EXISTS atricle;
+CREATE TABLE atricle (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    title VARCHAR(255),
+    content_html LONGTEXT,
+    content_md LONGTEXT,
+    abstract VARCHAR(255),
+    date DATETIME
+)

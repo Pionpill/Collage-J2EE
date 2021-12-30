@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 18:59:46
- * @LastEditTime: 2021-12-26 19:48:39
+ * @LastEditTime: 2021-12-30 22:46:35
 -->
 <template>
   <el-menu
@@ -40,7 +40,7 @@ export default {
     return {
       navList: [
         { name: "/index", navItem: "首页" },
-        { name: "/notebook", navItem: "笔记本" },
+        { name: "/note", navItem: "笔记本" },
         { name: "/library", navItem: "图书馆" },
         { name: "/admin", navItem: "个人中心" }
       ]

@@ -4,10 +4,12 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 13:28:14
- * @LastEditTime: 2021-12-19 11:28:05
+ * @LastEditTime: 2021-12-30 21:08:19
  */
 import ElementUI from "element-ui";
 import "element-ui/lib/theme-chalk/index.css";
+import mavonEditor from "mavon-editor"; // 编辑器
+import "mavon-editor/dist/css/index.css"; // 显示图标
 import Vue from "vue";
 import App from "./App";
 import router from "./router";
@@ -21,6 +23,7 @@ Vue.prototype.$axios = axios;
 Vue.config.productionTip = false;
 
 Vue.use(ElementUI);
+Vue.use(mavonEditor);
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
