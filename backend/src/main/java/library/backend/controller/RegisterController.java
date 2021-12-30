@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 11:57:43
- * @LastEditTime: 2021-12-26 20:46:44
+ * @LastEditTime: 2021-12-27 22:49:33
  */
 package library.backend.controller;
 
@@ -30,7 +30,7 @@ public class RegisterController {
     public Result register(@RequestBody User requestUser) {
         String id = requestUser.getId();
         String email = requestUser.getEmail();
-        if (UserService.isExist(id) || UserService.isEmaillExist(email)) {
+        if (UserService.isExist(id) || UserService.isEmailExist(email)) {
             return new Result(400);
         } else {
             UserService.addRegisterUser(requestUser);

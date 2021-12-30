@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 21:27:21
- * @LastEditTime: 2021-12-19 01:09:01
+ * @LastEditTime: 2021-12-28 21:48:13
  */
 package library.backend.entity;
 
@@ -31,7 +31,7 @@ public class User {
     @Column(name="realname")
     private String realName;
     private String sexual;
-    private String permission;
+    private int permission;
     private String email;
     private String academy;
     private String major;

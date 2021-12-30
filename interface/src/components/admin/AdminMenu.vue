@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-25 15:20:48
- * @LastEditTime: 2021-12-25 16:02:44
+ * @LastEditTime: 2021-12-30 16:38:29
 -->
 <template>
   <el-menu
@@ -23,15 +23,14 @@
         <i class="el-icon-user-solid"></i>
         <span slot="title" class="group">用户管理</span>
       </template>
-      <el-menu-item index="1-1">用户信息</el-menu-item>
-      <el-menu-item index="1-2">角色配置</el-menu-item>
+      <el-menu-item index="/admin/User/UserInfo">用户信息</el-menu-item>
     </el-submenu>
     <el-submenu index="2" style="text-align: left">
       <template slot="title">
         <i class="el-icon-s-management"></i>
-        <span slot="title" class="group">图书管理</span>
+        <span slot="title" class="group">内容管理</span>
       </template>
-      <el-menu-item index="2-1">书籍管理</el-menu-item>
+      <el-menu-item index="/admin/Book/BookInfo">图书管理</el-menu-item>
     </el-submenu>
     <el-submenu index="3" style="text-align: left">
       <template slot="title">
@@ -44,8 +43,11 @@
 </template>
 
 <script>
+import UserInfo from "./User/UserInfo";
+
 export default {
   name: "AdminMenu",
+  components: { UserInfo },
   data() {
     return {
       isCollapse: false
@@ -55,9 +57,9 @@ export default {
     // adminMenus() {
     //   return this.$store.state.adminMenus;
     // },
-    // currentPath() {
-    //   return this.$route.path;
-    // }
+    currentPath() {
+      return this.$route.path;
+    }
   }
 };
 </script>

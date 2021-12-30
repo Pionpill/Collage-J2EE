@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 14:30:24
- * @LastEditTime: 2021-12-26 20:47:59
+ * @LastEditTime: 2021-12-28 21:24:57
 -->
 <template>
   <div id="poster">
@@ -182,7 +182,6 @@ export default {
     },
     register() {
       if (!this.checkRegister()) {
-        // TODO 后端检查
         this.$axios
           .post("/register", this.registerForm)
           .then(successResponse => {

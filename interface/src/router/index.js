@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 13:28:14
- * @LastEditTime: 2021-12-25 15:30:18
+ * @LastEditTime: 2021-12-30 16:16:13
  */
 import Vue from "vue";
 import Router from "vue-router";
@@ -57,14 +57,22 @@ export default new Router({
         requireAuth: true
       },
       children: [
-        // {
-        //   path: "/admin/dashboard",
-        //   name: "Dashboard",
-        //   component: () => import("../components/admin/dashboard/admin/index"),
-        //   meta: {
-        //     requireAuth: true
-        //   }
-        // }
+        {
+          path: "/admin/User/UserInfo",
+          name: "UserInfo",
+          component: () => import("../components/admin/User/UserInfo"),
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: "/admin/Book/BookInfo",
+          name: "BookInfo",
+          component: () => import("../components/admin/Book/BookInfo"),
+          meta: {
+            requireAuth: true
+          }
+        }
       ]
     }
   ]
