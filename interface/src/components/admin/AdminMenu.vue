@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-25 15:20:48
- * @LastEditTime: 2021-12-30 20:55:37
+ * @LastEditTime: 2021-12-31 01:16:15
 -->
 <template>
   <el-menu
@@ -31,14 +31,14 @@
         <span slot="title" class="group">内容管理</span>
       </template>
       <el-menu-item index="/admin/Book/BookInfo">图书管理</el-menu-item>
-      <el-menu-item index="/admin/Content/Editor">文章管理</el-menu-item>
+      <el-menu-item index="/admin/Content/Management">文章管理</el-menu-item>
     </el-submenu>
     <el-submenu index="3" style="text-align: left">
       <template slot="title">
         <i class="el-icon-s-platform"></i>
-        <span slot="title" class="group">系统管理</span>
+        <span slot="title" class="group">功能模块</span>
       </template>
-      <el-menu-item index="3-1">运行情况</el-menu-item>
+      <el-menu-item index="/admin/Content/Editor">写笔记</el-menu-item>
     </el-submenu>
   </el-menu>
 </template>

@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-25 15:20:53
- * @LastEditTime: 2021-12-25 15:34:52
+ * @LastEditTime: 2021-12-31 01:16:38
 -->
 <template>
   <el-card class="admin-header">
@@ -18,7 +18,7 @@
     </a>
     <span
       style="font-size: 24px;font-weight: bold;position:absolute;left: 100px"
-      >后台管理</span
+      >个人中心</span
     >
     <i
       class="el-icon-switch-button"

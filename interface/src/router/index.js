@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 13:28:14
- * @LastEditTime: 2021-12-31 00:46:02
+ * @LastEditTime: 2021-12-31 01:07:37
  */
 import Vue from "vue";
 import Router from "vue-router";
@@ -88,6 +88,15 @@ export default new Router({
           path: "/admin/Content/Editor",
           name: "Editor",
           component: Editor,
+          meta: {
+            requireAuth: true
+          }
+        },
+        {
+          path: "/admin/Content/Management",
+          name: "ContentManagement",
+          component: () =>
+            import("../components/admin/Content/ArticleManagement"),
           meta: {
             requireAuth: true
           }
