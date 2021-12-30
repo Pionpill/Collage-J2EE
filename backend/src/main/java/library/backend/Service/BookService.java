@@ -1,7 +1,7 @@
 /*
  * @Author: Rooter
  * @Date: 2021-12-19 13:01:31
- * @LastEditors: Pionpill
+ * @LastEditors: Rooter
  */
 package library.backend.Service;
 
@@ -27,8 +27,8 @@ public class BookService {
         return bookDAO.findAll(sort);
     }
 
-    public void addOrUpdate(Book book) {
-        bookDAO.save(book);
+    public Book addOrUpdate(Book book) {
+        return bookDAO.save(book);
     }
 
     public void deleteById(int id) {
@@ -42,6 +42,38 @@ public class BookService {
 
     public List<Book> Search(String keywords) {
         return bookDAO.findAllByTitleLikeOrAuthorLike('%' + keywords + '%', '%' + keywords + '%');
+    }
+
+    public void deleteBook(Book requestBook){
+        bookDAO.delete(requestBook);
+    }
+
+    public Boolean addRegisterBook(Book originBook){
+        Book newBook = renewBook(originBook);
+        if(this.addOrUpdate(newBook)!=null)
+            return true;
+        else 
+            return false;
+    }
+
+    private Book renewBook(Book requestBook){
+        Book newBook = new Book();
+        newBook.setId(requestBook.getId());
+        newBook.setTitle(requestBook.getTitle());
+        newBook.setAuthor(requestBook.getAuthor());
+        newBook.setDate(requestBook.getDate());
+        newBook.setPress(requestBook.getPress());
+        newBook.setCategory(requestBook.getCategory());
+        return newBook;
+    }
+
+    public Book getById(int id) {
+        return bookDAO.getById(id);
+    }
+
+    public boolean isExist(int id) {
+        Book book = getById(id);
+        return null != book;
     }
 
 }

@@ -2,9 +2,9 @@
  * @Description: your project
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Pionpill
+ * @LastEditors: Rooter
  * @Date: 2021-12-27 17:06:24
- * @LastEditTime: 2021-12-30 16:35:42
+ * @LastEditTime: 2021-12-30 23:10:45
 -->
 <template>
   <div style="text-align: left">
@@ -12,91 +12,100 @@
       class="add-button"
       type="success"
       @click="dialogFormVisible = true"
-      >添加用户</el-button
+      >添加书本</el-button
     >
     <el-dialog
-      title="添加用户"
+      title="添加书本"
       :visible.sync="dialogFormVisible"
       @close="clear"
       width="50%"
     >
       <el-form :model="loginForm" :rules="rules" label-position="left">
-        <el-form-item label="学号(工作号)" prop="id">
+        <el-form-item label="编号" prop="id">
           <el-input
             type="text"
             v-model="loginForm.id"
             auto-complete="off"
-            placeholder="12位学号"
+            placeholder="书的编号"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="真实姓名" prop="realname">
+        <!-- <el-form-item label="封面" prop="cover">
           <el-input
             type="text"
-            v-model="loginForm.realName"
+            v-model="loginForm.cover"
             auto-complete="off"
-            placeholder="身份证姓名"
+            placeholder="图片"
           ></el-input>
-        </el-form-item>
+        </el-form-item> -->
 
-        <el-form-item label="用户名" prop="username">
+        <el-form-item label="书名" prop="title">
           <el-input
             type="text"
-            v-model="loginForm.username"
+            v-model="loginForm.title"
             auto-complete="off"
-            placeholder="用户名"
+            placeholder="书名"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="密码" prop="password">
+        <el-form-item label="作者" prop="author">
           <el-input
-            type="password"
-            v-model="loginForm.password"
+            type="text"
+            v-model="loginForm.author"
             auto-complete="off"
-            placeholder="密码"
+            placeholder="作者"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="性别" label-width="50px">
+          <el-form-item label="出版时间" prop="date">
+          <el-input
+            type="text"
+            v-model="loginForm.date"
+            auto-complete="off"
+            placeholder="出版时间"
+          ></el-input>
+        </el-form-item>
+
+        <!-- <el-form-item label="性别" label-width="50px">
           <el-select v-model="loginForm.sexual">
             <el-option :value="男" label="男"></el-option>
             <el-option :value="女" label="女"></el-option>
             <el-option :value="默认" label="默认"></el-option>
           </el-select>
-        </el-form-item>
+        </el-form-item> -->
 
-        <el-form-item label="权限" label-width="50px">
+        <!-- <el-form-item label="权限" label-width="50px">
           <el-select v-model="loginForm.permission">
             <el-option :value="0" label="超级权限"></el-option>
             <el-option :value="1" label="管理员"></el-option>
             <el-option :value="2" label="普通用户"></el-option>
           </el-select>
-        </el-form-item>
+        </el-form-item> -->
 
-        <el-form-item label="邮箱" prop="email">
+        <el-form-item label="出版社" prop="press">
           <el-input
-            type="email"
-            v-model="loginForm.email"
+            type="text"
+            v-model="loginForm.press"
             auto-complete="off"
-            placeholder="邮箱"
+            placeholder="出版社"
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="学院" prop="academy">
+        <!-- <el-form-item label="简介" prop="abs">
           <el-input
             type="text"
-            v-model="loginForm.academy"
+            v-model="loginForm.abs"
             auto-complete="off"
-            placeholder="学院"
+            placeholder="简介"
           ></el-input>
-        </el-form-item>
+        </el-form-item> -->
 
-        <el-form-item label="专业" prop="major">
+        <el-form-item label="类别" prop="category">
           <el-input
             type="text"
-            v-model="loginForm.major"
+            v-model="loginForm.category"
             auto-complete="off"
-            placeholder="专业"
+            placeholder="类别"
           ></el-input>
         </el-form-item>
 
@@ -120,50 +129,45 @@ export default {
     return {
       dialogFormVisible: false,
       rules: {
-        username: [
-          { required: true, message: "用户名不能为空", trigger: "blur" }
+        bookname: [
+          { required: true, message: "书名不能为空", trigger: "blur" }
         ],
-        password: [
-          { required: true, message: "密码不能为空", trigger: "blur" }
+        author: [
+          { required: true, message: "作者不能为空", trigger: "blur" }
         ],
         id: [
-          { required: true, message: "学号(工作号)不能为空", trigger: "blur" }
+          { required: true, message: "编号不能为空", trigger: "blur" }
         ],
-        email: [{ required: true, message: "邮箱不能为空", trigger: "blur" }]
+        date: [{ required: true, message: "出版时间不能为空", trigger: "blur" }]
       },
       loginForm: {
+        category: "",
+        title: "",
+        author: "",
+        date: "",
+        press: "",
         id: "",
-        realName: "",
-        username: "",
-        password: "",
-        sexual: "",
-        permission: "",
-        email: "",
-        academy: "",
-        major: ""
       },
-      sexual: ["男", "女", "默认"],
-      permission: ["管理员", "用户"]
     };
   },
   methods: {
     clear() {
       this.loginForm = {
-        username: "",
-        password: "",
-        name: "",
-        phone: "",
-        email: ""
+        bookname: "",
+        author: "",
+        date: "",
+        press: "",
+        cid: ""
       };
     },
     register() {
       this.$axios
-        .post("/register", this.loginForm)
+        .post("/registerBook", this.loginForm)
         .then(successResponse => {
           if (successResponse.data.code === 200) {
             this.$alert("成功注册");
           } else if (successResponse.data.code === 400) {
-            alert("这个学号或邮箱已被注册!!!");
+            alert("这个编号已被注册!!!");
           }
         })
         .catch(failResponse => {});
