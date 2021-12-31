@@ -1,10 +1,10 @@
 /*
  * @Description: your project
  * @version: 1.0
- * @Author: Pionpill
+ * @Author: Pionpill, Zero689
  * @LastEditors: Pionpill
  * @Date: 2021-12-18 21:37:29
- * @LastEditTime: 2021-12-19 01:15:10
+ * @LastEditTime: 2021-12-31 14:10:11
  */
 /*
  *                        _oo0oo_
@@ -29,7 +29,7 @@
  * 
  *      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  * 
- *            佛祖保佑       永不宕机     永无BUG
+ *                      课设永无BUG
  */
 package library.backend.controller;
 

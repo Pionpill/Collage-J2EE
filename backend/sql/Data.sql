@@ -1,12 +1,15 @@
 INSERT INTO user VALUES (201983290194,'吴鼎','Pionpill','673486387','男',1,'673486387@qq.com','计算机与软件学院','软件工程');
-INSERT INTO user VALUES (201983290430,'潘孝飞','潘孝飞','1877329715','男',1,'1877329715@qq.com','计算机与软件学院','软件工程');
-INSERT INTO user VALUES (201983290013,'汤硕','汤硕','1240104681','男',1,'1240104681@qq.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290430,'潘孝飞','Zero689','1877329715','男',1,'1877329715@qq.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290013,'汤硕','Titc-s','1240104681','男',1,'1240104681@qq.com','计算机与软件学院','软件工程');
 INSERT INTO user VALUES (201983290424,'徐淳','Rooter','2486420157','男',1,'2486420157@qq.com','计算机与软件学院','软件工程');
-INSERT INTO user VALUES (201900000000,'超级权限','root','123456','男',0,'','','');
+INSERT INTO user VALUES (201900000000,'超级权限','root','123456789','男',0,'','','');
 INSERT INTO user VALUES (201900000001,'管理员','admin','123456','男',1,'','','');
-INSERT INTO user VALUES (201900000002,'普通用户','user','123456','男',2,'','','');
+INSERT INTO user VALUES (201900000002,'普通用户','user','123','男',2,'','','');
 INSERT INTO user VALUES (201983290001,'麦克','Mike','123456','男',2,'123456@twitter.com','国际学院','汉语');
 INSERT INTO user VALUES (201983290002,'海伦','Hallen','123456','女',2,'123456@meta.com','国际学院','自动化');
+INSERT INTO user VALUES (201983290003,'蒋沁廷','King','123456','女',2,'123456@meta.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290004,'周肖桐','Chaos','347567','男',2,'347567@meta.com','计算机与软件学院','计算机科学');
+INSERT INTO user VALUES (201983290005,'张伟旭','Zang','1236786','男',2,'3127567@meta.com','计算机与软件学院','计算机科学');
 
 
 INSERT INTO `category` VALUES ('1', '计算机基础');
@@ -23,7 +26,6 @@ INSERT INTO `saying`(book,saying,author) VALUES('Java 核心技术','书写 Java
 INSERT INTO `saying`(book,saying,author) VALUES('Python编程从入门到实践','Python是否值得学，已经不再是值得怀疑的问题了','[美] ZoomQuiet');
 INSERT INTO `saying`(book,saying,author) VALUES('Code Complete','高质量的代码就是对程序自己最好的注释','[美] Steve McConnell');
 INSERT INTO `saying`(book,saying,author) VALUES('The Design and Evolution of C++','在一种编程语言中，即使有再多的好程序被诋毁指责，也要比被说成完美无缺好 — 好的多','[美] Bjarne Stroustrup');
--- INSERT INTO `saying`(book,saying,author) VALUES('The Structure and Interpretation of Computer Programs','程序应该是写给其他人读的，让机器来运行它只是一个附带功能。','[美] Harold Abelson  Gerald Jay Sussman');
 INSERT INTO `saying`(book,saying,author) VALUES('The Inmates are Running the Asylum','原型的价值就在于它对你的教育，而不是代码本身。','[美] Alan Cooper');
 INSERT INTO `saying`(book,saying,author) VALUES('The Cathedral and the Bazaar','给与足够的眼球，所有的Bugs都很容易发现','[美] Eric S. Raymond');
 INSERT INTO `saying`(book,saying,author) VALUES('Perl编程','懒惰：是这样一种品质，它使得你花大力气去避免消耗过多的精力。它敦促你写出节省体力的程序，同时别人也能利用它们。为此你会写出完善的文档，以免别人问你太多问题。','[美] Larry Wall');
@@ -76,7 +78,6 @@ INSERT INTO book VALUES ('1013', 'https://s2.loli.net/2021/12/19/petChSzNfGDlgnm
 INSERT INTO book VALUES ('1014', 'https://s2.loli.net/2021/12/19/8TPVZHfdmEuAi1O.jpg', 'The Rails 4 Way', 'Obie Fernandez / Kevin Faustino', '2014-6', 'Addison-Wesley Professional', '','3');
 INSERT INTO book VALUES ('1015', 'https://s2.loli.net/2021/12/19/5QwiN1Ss4B2COkm.jpg', '单页Web应用', '包勇明', '2014-6', '人民邮电出版社', '《单页Web应用：JavaScript从前端到后端》是设计和构建大规模JavaScript单页Web应用(SPA)的宝贵指南，这些应用从前端到后端都使用JavaScript：浏览器端应用、Web服务器和数据库。《单页Web应用：JavaScript从前端到后端》大约三分之二的内容专门讲解单页Web应用的客户端开发，先定义何为JavaScript单页应用，接着介绍书中使用的单页Web应用的架构，然后依次讲解Shell模块、功能模块、Model模块、Data模块和Fake模块等，其中还专门拿出一整章讲解开发单页Web应用时需要掌握的JavaScript概念和特性；剩下三分之一的内容讲解单页Web应用的服务器端开发和其他与单页Web应用相关的知识，如Node.js、MongoDB、CDN、搜索引擎优化、数据分析、错误日志以及各个层级的缓存等。本书最后的两个附录分别介绍JavaScript的编码规范和单页Web应用的测试。','3');
 INSERT INTO book VALUES ('1016', 'https://s2.loli.net/2021/12/19/PzBpQS6s5VNY2Zl.jpg', 'Web开发入门经典', '波诺赛克 / 纳拉莫尔', '2009-7', '清华大学出版社', '《Web开发入门经典:使用PHP6、Apache和MySQL》以逐步深入的方式介绍了3种重要的开源技术，它们组成了构建一个最活跃的Web站点所需要的基础。《Web开发入门经典:使用PHP6、Apache和MySQL》重点阐述了如何使用Apache Web服务器、MySQL数据库系统和PHP脚本语言快速地创建一个专业的、功能丰富的站点。在这个过程中，您可以切身体会到PHP、MySQL和Apache的联合应用之所以如此流行的原因：完美的交互性、灵活性、用户化特性、成本以及能够在Linux和Windows系统上运行的能力。','3');
--- INSERT INTO book VALUES ('1017', 'https://s2.loli.net/2021/12/19/Lr2f1zWNM9gJkjA.jpg', 'Node.js 实战', '赵坤 / 寸志 / 雷宗民 / 吴中骅', '2014-5-1', 'Node.js 实战（双色）》通过8 个实例讲解了Node.js 在实战开发中的应用，涉及Node.js 常用框架、非关系型数据库、关系型数据库、运维命令和网络安全等内容。章节按照从简单到复杂的难度排序，每一章都通过一个有趣的实例指引读者从头开发一个应用，让读者可以循序渐进地学习Node.js，以及在实战开发中的编程技巧。','3');
 INSERT INTO book VALUES ('1018', 'https://s2.loli.net/2021/12/19/CzbI49NlcOMhwEB.jpg', 'B端产品设计与开发', 'Blair，Reeves，Benjamin，Gaines', '2019-10', '中国电力出版社', '本书介绍了企业级和消费级产品的关键不同，给出了企业级产品开发过程各种难点的解决方案。你将从中学到如何掌握三大类知识：机构知识、产品知识和行业知识。本书重点探讨以下主题：识别客户问题和用户问题是企业级产品经理的主要挑战。高效的合作要求深入的机构知识。分析数据是理解用户为什么购买、安装使用和保有你产品的关键。你有过相关行业的工作经验，再为其开发软件，将非常吃香。产品寿命取决于产品经理对行业发展方向的认识。','3');
 INSERT INTO book VALUES ('1019', 'https://s2.loli.net/2021/12/19/V8DOC6JRGPTHzBt.jpg', 'JavaScript & jQuery交互式Web前端开发', '[美]达克特(Duckett,J.)', '2015-6', '你是一名JavaScript新手?或是您曾经向自己的Web页面上添加过一些脚本，但想以一种更好的方式来实现它们？本书非常适合您。本书不仅向您展示如何阅读和编写JavaScript代码，同时还会以一种简单且视觉化的方式，教您有关计算机编程的基础知识。阅读本书之前，您只需要对HTML和CSS有一些了解即可。通过将编程理论与用来演示JavaScript和jQuery如何被应用于流行站点之上的示例相结合，本书将教会您如何让网站更具交互性、吸引性、可用性。很快，您就能够像一名程序员那样去思考和编写代码了。', '','3');
 INSERT INTO book VALUES ('1020', 'https://s2.loli.net/2021/12/19/nEBWVMtSFCJb2lY.jpg', '全端Web开发', ' [美] Casimir Saternos', '2015-7', '人民邮电出版社', 'JavaScript和Java这两大生态系统之间如何协同，成为所有Web开发人员共同面临的问题。本书应运而生，全面又简练地为读者展示了最新的C/S应用开发范式。本书以Java和JavaScript这两种最流行的服务器与客户端开发环境为例，全面讲解了最新的C/S应用开发范式。作者不仅讲解了很多实用的C/S开发架构，还通过各种实例进一步强化了读者的认知。','3');

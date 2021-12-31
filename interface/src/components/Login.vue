@@ -1,10 +1,10 @@
 <!--
  * @Description: your project
  * @version: 1.0
- * @Author: Pionpill
+ * @Author: Pionpill,Zero689
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 14:30:24
- * @LastEditTime: 2021-12-28 21:24:57
+ * @LastEditTime: 2021-12-31 13:36:15
 -->
 <template>
   <div id="poster">
@@ -148,7 +148,9 @@ export default {
         "Vue3",
         "Element UI",
         "SpringBoot",
-        "axios"
+        "axios",
+        "mavon-editor",
+        "lombox"
       ]
     };
   },
