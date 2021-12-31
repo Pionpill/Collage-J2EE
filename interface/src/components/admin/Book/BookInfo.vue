@@ -2,9 +2,9 @@
  * @Description: your project
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Pionpill
+ * @LastEditors: Please set LastEditors
  * @Date: 2021-12-25 15:21:08
- * @LastEditTime: 2021-12-31 12:06:04
+ * @LastEditTime: 2021-12-31 14:38:39
 -->
 <template>
   <div>
@@ -149,18 +149,9 @@ export default {
       });
     },
 
-    onSubmit() {
+    onSubmit(book) {
       this.$axios
-        .post("/books", {
-          id: this.form.id,
-          cover: this.form.cover,
-          title: this.form.title,
-          author: this.form.author,
-          date: this.form.date,
-          press: this.form.press,
-          abs: this.form.abs,
-          category: this.form.category
-        })
+        .post("/books", book)
         .then(resp => {
           if (resp && resp.status === 200) {
             this.dialogFormVisible = false;
