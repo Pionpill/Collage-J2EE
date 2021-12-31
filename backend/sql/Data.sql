@@ -1,12 +1,13 @@
-INSERT INTO user VALUES (201983290194,'吴鼎','吴鼎','673486387','男',0,'673486387@qq.com','计算机与软件学院','软件工程');
-INSERT INTO user VALUES (201983290430,'潘孝飞','潘孝飞','1877329715','男',0,'1877329715@qq.com','计算机与软件学院','软件工程');
-INSERT INTO user VALUES (201983290013,'汤硕','汤硕','1240104681','男',0,'1240104681@qq.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290194,'吴鼎','Pionpill','673486387','男',1,'673486387@qq.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290430,'潘孝飞','潘孝飞','1877329715','男',1,'1877329715@qq.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290013,'汤硕','汤硕','1240104681','男',1,'1240104681@qq.com','计算机与软件学院','软件工程');
+INSERT INTO user VALUES (201983290424,'徐淳','Rooter','2486420157','男',1,'2486420157@qq.com','计算机与软件学院','软件工程');
 INSERT INTO user VALUES (201900000000,'超级权限','root','123456','男',0,'','','');
 INSERT INTO user VALUES (201900000001,'管理员','admin','123456','男',1,'','','');
 INSERT INTO user VALUES (201900000002,'普通用户','user','123456','男',2,'','','');
 INSERT INTO user VALUES (201983290001,'麦克','Mike','123456','男',2,'123456@twitter.com','国际学院','汉语');
 INSERT INTO user VALUES (201983290002,'海伦','Hallen','123456','女',2,'123456@meta.com','国际学院','自动化');
-    
+
 
 INSERT INTO `category` VALUES ('1', '计算机基础');
 INSERT INTO `category` VALUES ('2', '前端开发');
