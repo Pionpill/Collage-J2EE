@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-25 15:21:08
- * @LastEditTime: 2021-12-30 16:14:04
+ * @LastEditTime: 2021-12-31 12:04:46
 -->
 <template>
   <div>
@@ -200,6 +200,15 @@ export default {
       this.$axios.post("/admin/user/password", user).then(resp => {
         if (resp && resp.data.code === 200) {
           this.$alert("已将改用户密码已重置为 123456");
+        }
+      });
+    },
+
+    onSubmit(user) {
+      this.$axios.post("/admin/user", user).then(resp => {
+        if (resp && resp.status === 200) {
+          this.dialogFormVisible = false;
+          this.$emit("onSubmit");
         }
       });
     }

@@ -2,9 +2,9 @@
  * @Description: your project
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Rooter
+ * @LastEditors: Pionpill
  * @Date: 2021-12-19 11:57:43
- * @LastEditTime: 2021-12-30 23:17:51
+ * @LastEditTime: 2021-12-31 11:22:26
  */
 package library.backend.controller;
 
@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import library.backend.Service.UserService;
 import library.backend.Service.BookService;
+import library.backend.Service.UserService;
 import library.backend.entity.Book;
 import library.backend.entity.User;
 import library.backend.result.Result;
@@ -24,7 +24,7 @@ import library.backend.result.Result;
 @Controller
 public class RegisterController {
     @Autowired
-    UserService UserService;
+    UserService userService;
 
     @CrossOrigin
     @PostMapping(value = "api/register")
@@ -32,10 +32,11 @@ public class RegisterController {
     public Result register(@RequestBody User requestUser) {
         String id = requestUser.getId();
         String email = requestUser.getEmail();
-        if (UserService.isExist(id) || UserService.isEmailExist(email)) {
+        if (userService.isExist(id) || userService.isEmailExist(email)) {
             return new Result(400);
         } else {
-            UserService.addRegisterUser(requestUser);
+            System.out.println(requestUser);
+            userService.addRegisterUser(requestUser);
             return new Result(200);
         }
     }

@@ -2,12 +2,12 @@
  * @Description: your project
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Rooter
+ * @LastEditors: Pionpill
  * @Date: 2021-12-27 17:06:24
- * @LastEditTime: 2021-12-30 23:10:45
+ * @LastEditTime: 2021-12-31 12:00:49
 -->
 <template>
-  <div style="text-align: left">
+  <div id="poster">
     <el-button
       class="add-button"
       type="success"
@@ -15,169 +15,153 @@
       >添加书本</el-button
     >
     <el-dialog
-      title="添加书本"
+      title="添加图书"
       :visible.sync="dialogFormVisible"
       @close="clear"
-      width="50%"
+      style="font-weight:600"
     >
-      <el-form :model="loginForm" :rules="rules" label-position="left">
-        <el-form-item label="编号" prop="id">
+      <el-form v-model="form" style="text-align: left" ref="dataForm">
+        <el-form-item label="书名" :label-width="formLabelWidth" prop="title">
           <el-input
-            type="text"
-            v-model="loginForm.id"
-            auto-complete="off"
-            placeholder="书的编号"
+            v-model="form.title"
+            autocomplete="off"
+            placeholder="J2EE 从入门到入土"
           ></el-input>
         </el-form-item>
-
-        <!-- <el-form-item label="封面" prop="cover">
+        <el-form-item label="作者" :label-width="formLabelWidth" prop="author">
+          <el-input v-model="form.author" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item
+          label="出版日期"
+          :label-width="formLabelWidth"
+          prop="date"
+        >
+          <el-input v-model="form.date" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="出版社" :label-width="formLabelWidth" prop="press">
+          <el-input v-model="form.press" autocomplete="off"></el-input>
+        </el-form-item>
+        <el-form-item label="封面" :label-width="formLabelWidth" prop="cover">
           <el-input
-            type="text"
-            v-model="loginForm.cover"
-            auto-complete="off"
-            placeholder="图片"
-          ></el-input>
-        </el-form-item> -->
-
-        <el-form-item label="书名" prop="title">
-          <el-input
-            type="text"
-            v-model="loginForm.title"
-            auto-complete="off"
-            placeholder="书名"
+            v-model="form.cover"
+            autocomplete="off"
+            placeholder="图片 URL"
           ></el-input>
         </el-form-item>
-
-        <el-form-item label="作者" prop="author">
+        <el-form-item label="简介" :label-width="formLabelWidth" prop="abs">
           <el-input
-            type="text"
-            v-model="loginForm.author"
-            auto-complete="off"
-            placeholder="作者"
+            type="textarea"
+            v-model="form.abs"
+            autocomplete="off"
           ></el-input>
         </el-form-item>
-
-          <el-form-item label="出版时间" prop="date">
-          <el-input
-            type="text"
-            v-model="loginForm.date"
-            auto-complete="off"
-            placeholder="出版时间"
-          ></el-input>
-        </el-form-item>
-
-        <!-- <el-form-item label="性别" label-width="50px">
-          <el-select v-model="loginForm.sexual">
-            <el-option :value="男" label="男"></el-option>
-            <el-option :value="女" label="女"></el-option>
-            <el-option :value="默认" label="默认"></el-option>
+        <el-form-item label="分类" :label-width="formLabelWidth" prop="cid">
+          <el-select v-model="form.category.id" placeholder="请选择分类">
+            <el-option label="计算机基础" value="1"></el-option>
+            <el-option label="前端开发" value="2"></el-option>
+            <el-option label="后端开发" value="3"></el-option>
+            <el-option label="人工智能" value="4"></el-option>
+            <el-option label="游戏开发" value="5"></el-option>
+            <el-option label="大数据" value="6"></el-option>
           </el-select>
-        </el-form-item> -->
-
-        <!-- <el-form-item label="权限" label-width="50px">
-          <el-select v-model="loginForm.permission">
-            <el-option :value="0" label="超级权限"></el-option>
-            <el-option :value="1" label="管理员"></el-option>
-            <el-option :value="2" label="普通用户"></el-option>
-          </el-select>
-        </el-form-item> -->
-
-        <el-form-item label="出版社" prop="press">
-          <el-input
-            type="text"
-            v-model="loginForm.press"
-            auto-complete="off"
-            placeholder="出版社"
-          ></el-input>
         </el-form-item>
-
-        <!-- <el-form-item label="简介" prop="abs">
+        <el-form-item prop="id" style="height: 0">
           <el-input
-            type="text"
-            v-model="loginForm.abs"
-            auto-complete="off"
-            placeholder="简介"
+            type="hidden"
+            v-model="form.id"
+            autocomplete="off"
           ></el-input>
-        </el-form-item> -->
-
-        <el-form-item label="类别" prop="category">
-          <el-input
-            type="text"
-            v-model="loginForm.category"
-            auto-complete="off"
-            placeholder="类别"
-          ></el-input>
-        </el-form-item>
-
-        <el-form-item style="width: 100%">
-          <el-button
-            type="primary"
-            style="width: 40%;background: #505458;border: none"
-            @click="register"
-            >添加</el-button
-          >
         </el-form-item>
       </el-form>
+      <div slot="footer" class="dialog-footer">
+        <el-button @click="dialogFormVisible = false">取 消</el-button>
+        <el-button type="primary" @click="onSubmit">确 定</el-button>
+      </div>
     </el-dialog>
   </div>
 </template>
 
 <script>
 export default {
-  name: "BookRegistry",
+  name: "EditForm",
   data() {
     return {
       dialogFormVisible: false,
-      rules: {
-        bookname: [
-          { required: true, message: "书名不能为空", trigger: "blur" }
-        ],
-        author: [
-          { required: true, message: "作者不能为空", trigger: "blur" }
-        ],
-        id: [
-          { required: true, message: "编号不能为空", trigger: "blur" }
-        ],
-        date: [{ required: true, message: "出版时间不能为空", trigger: "blur" }]
-      },
-      loginForm: {
-        category: "",
+      form: {
+        id: "",
         title: "",
         author: "",
         date: "",
         press: "",
-        id: "",
+        cover: "",
+        abs: "",
+        category: {
+          id: "",
+          name: ""
+        }
       },
+      formLabelWidth: "120px"
     };
   },
   methods: {
     clear() {
-      this.loginForm = {
-        bookname: "",
+      this.form = {
+        id: "",
+        title: "",
         author: "",
         date: "",
         press: "",
-        cid: ""
+        cover: "",
+        abs: "",
+        category: ""
       };
     },
-    register() {
+    onSubmit() {
       this.$axios
-        .post("/registerBook", this.loginForm)
-        .then(successResponse => {
-          if (successResponse.data.code === 200) {
-            this.$alert("成功注册");
-          } else if (successResponse.data.code === 400) {
-            alert("这个编号已被注册!!!");
-          }
+        .post("/books", {
+          id: this.form.id,
+          cover: this.form.cover,
+          title: this.form.title,
+          author: this.form.author,
+          date: this.form.date,
+          press: this.form.press,
+          abs: this.form.abs,
+          category: this.form.category
         })
-        .catch(failResponse => {});
+        .then(resp => {
+          if (resp && resp.status === 200) {
+            this.dialogFormVisible = false;
+            this.$emit("onSubmit");
+          }
+        });
     }
   }
 };
 </script>
 
 <style scoped>
-.add-button {
-  margin: 18px 0 0 10px;
+.el-icon-circle-plus-outline {
+  margin: 50px 0 0 20px;
+  font-size: 80px;
+  float: left;
+  cursor: pointer;
+  border: 2px solid #fff;
+  border-radius: 50px;
+}
+
+.el-icon-circle-plus-outline:hover {
+  color: rgb(1, 94, 95);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.el-dialog {
+  font-weight: 600;
+}
+
+.el-form-item {
+  font-weight: 600;
+}
+
+#poster {
 }
 </style>

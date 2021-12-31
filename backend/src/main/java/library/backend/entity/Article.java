@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-30 21:24:58
- * @LastEditTime: 2021-12-30 21:29:37
+ * @LastEditTime: 2021-12-31 12:11:39
  */
 package library.backend.entity;
 
@@ -23,7 +23,7 @@ import lombok.Data;
 
 @Data // 这个依赖比较特殊，要安装插件
 @Entity  // 数据库与实体连接
-@Table(name = "atricle") // J2EE user 表
+@Table(name = "article") // J2EE user 表
 @JsonIgnoreProperties({"handler","hibernateLazyInitializer"}) // json 字段忽略
 public class Article {
     @Id

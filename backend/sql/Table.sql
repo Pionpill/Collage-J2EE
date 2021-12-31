@@ -52,7 +52,7 @@ CREATE TABLE saying(
     PRIMARY KEY (id)
 );
 
-DROP TABLE IF EXISTS atricle;
+DROP TABLE IF EXISTS article;
 CREATE TABLE atricle (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255),

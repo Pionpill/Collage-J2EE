@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-27 17:06:24
- * @LastEditTime: 2021-12-30 16:13:16
+ * @LastEditTime: 2021-12-31 12:01:05
 -->
 <template>
   <div style="text-align: left">
@@ -30,7 +30,7 @@
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="真实姓名" prop="realname">
+        <el-form-item label="真实姓名" prop="realName">
           <el-input
             type="text"
             v-model="loginForm.realName"
@@ -57,19 +57,21 @@
           ></el-input>
         </el-form-item>
 
-        <el-form-item label="性别" label-width="50px">
+        <el-form-item label="性别" label-width="50px" prop="sexual">
           <el-select v-model="loginForm.sexual">
-            <el-option :value="男" label="男"></el-option>
-            <el-option :value="女" label="女"></el-option>
-            <el-option :value="默认" label="默认"></el-option>
+            <el-option v-for="item in sexual" :key="item" :value="item">
+            </el-option>
           </el-select>
         </el-form-item>
 
-        <el-form-item label="权限" label-width="50px">
+        <el-form-item label="权限" label-width="50px" prop="permission">
           <el-select v-model="loginForm.permission">
-            <el-option :value="0" label="超级权限"></el-option>
-            <el-option :value="1" label="管理员"></el-option>
-            <el-option :value="2" label="普通用户"></el-option>
+            <el-option
+              v-for="item in permission"
+              :label="item.label"
+              :value="item.value"
+            >
+            </el-option>
           </el-select>
         </el-form-item>
 
@@ -143,7 +145,16 @@ export default {
         major: ""
       },
       sexual: ["男", "女", "默认"],
-      permission: ["管理员", "用户"]
+      permission: [
+        {
+          value: 1,
+          label: "管理员"
+        },
+        {
+          value: 2,
+          label: "普通用户"
+        }
+      ]
     };
   },
   methods: {
@@ -158,7 +169,7 @@ export default {
     },
     register() {
       this.$axios
-        .post("/register", this.loginForm)
+        .post("/admin/register", this.loginForm)
         .then(successResponse => {
           if (successResponse.data.code === 200) {
             this.$alert("成功注册");

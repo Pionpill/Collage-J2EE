@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-19 11:57:43
- * @LastEditTime: 2021-12-30 15:35:16
+ * @LastEditTime: 2021-12-31 11:59:07
  */
 package library.backend.Service;
 
@@ -58,6 +58,13 @@ public class UserService {
         else
             return false;
     }
+
+    public Boolean addAdminRegisterUser(User user) {
+        if (this.add(user) != null)
+            return true;
+        else
+            return false;
+    }
     
     public List<User> list() {
         return userDAO.findAll();
@@ -87,12 +94,17 @@ public class UserService {
         userDAO.delete(requestUser);
     }
 
+    public User addOrUpdate(User book) {
+        return userDAO.save(book);
+    }
+
     private User renewUser(User requestUser) {
         User newUser = new User();
         newUser.setId(requestUser.getId());
         newUser.setUsername(requestUser.getUsername());
         newUser.setPassword(requestUser.getPassword());
         newUser.setEmail(requestUser.getEmail());
+        newUser.setPermission(2);
         return newUser;
     }
 }

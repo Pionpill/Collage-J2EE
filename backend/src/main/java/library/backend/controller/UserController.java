@@ -4,7 +4,7 @@
  * @Author: Pionpill
  * @LastEditors: Pionpill
  * @Date: 2021-12-27 17:30:27
- * @LastEditTime: 2021-12-30 15:36:01
+ * @LastEditTime: 2021-12-31 11:59:53
  */
 package library.backend.controller;
 
@@ -64,5 +64,26 @@ public class UserController {
     public Result deleteUser(@RequestBody User requestUser) {
         userService.deleteUser(requestUser);
         return new Result(200);
+    }
+
+    @CrossOrigin
+    @PostMapping(value = "api/admin/register")
+    @ResponseBody
+    public Result register(@RequestBody User requestUser) {
+        String id = requestUser.getId();
+        String email = requestUser.getEmail();
+        if (userService.isExist(id) || userService.isEmailExist(email)) {
+            return new Result(400);
+        } else {
+            System.out.println(requestUser);
+            userService.addAdminRegisterUser(requestUser);
+            return new Result(200);
+        }
+    }
+
+    @PostMapping("/api/admin/user")
+    public User addOrUpdate(@RequestBody User user) throws Exception {
+        userService.addOrUpdate(user);
+        return user;
     }
 }
