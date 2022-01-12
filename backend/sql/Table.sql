@@ -53,7 +53,7 @@ CREATE TABLE saying(
 );
 
 DROP TABLE IF EXISTS article;
-CREATE TABLE atricle (
+CREATE TABLE article (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255),
     content_html LONGTEXT,

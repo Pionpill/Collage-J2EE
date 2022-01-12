@@ -2,9 +2,9 @@
  * @Description: 编辑器
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Pionpill
+ * @LastEditors: Please set LastEditors
  * @Date: 2021-12-29 20:47:18
- * @LastEditTime: 2021-12-30 22:14:32
+ * @LastEditTime: 2021-12-31 14:50:36
 -->
 <template>
   <div>
@@ -96,7 +96,7 @@ export default {
               date: new Date()
             })
             .then(resp => {
-              if (resp && resp.data.code === 200) {
+              if (resp) {
                 this.$message({
                   type: "info",
                   message: "已保存成功"

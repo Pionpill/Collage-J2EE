@@ -2,9 +2,9 @@
  * @Description: your project
  * @version: 1.0
  * @Author: Pionpill
- * @LastEditors: Pionpill
+ * @LastEditors: Please set LastEditors
  * @Date: 2021-12-30 21:38:06
- * @LastEditTime: 2021-12-31 00:50:38
+ * @LastEditTime: 2021-12-31 14:47:49
  */
 package library.backend.controller;
 
@@ -28,6 +28,7 @@ public class ArticleController {
 
     @PostMapping("api/admin/content/article")
     public Result saveArticle(@RequestBody Article article) {
+        System.out.println(article);
         articleService.addOrUpdate(article);
         return new Result(200);
     }
@@ -41,7 +42,6 @@ public class ArticleController {
     public Article getOneArticle(@PathVariable("id") int id) {
         return articleService.findById(id);
     }
-
 
     @DeleteMapping("/api/admin/content/article/{id}")
     public Result deleteArticle(@PathVariable("id") int id) {
